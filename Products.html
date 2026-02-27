@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Products - SAMDIMMA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<style>
+body{font-family:Poppins;margin:0}
+header{background:#000;color:#fff;text-align:center;padding:15px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:40px}
+.card{box-shadow:0 4px 10px rgba(0,0,0,0.1);border-radius:10px;overflow:hidden}
+.card img{width:100%;height:250px;object-fit:cover}
+.card h3{text-align:center}
+.price{text-align:center;color:#ff1493;font-weight:bold}
+button{display:block;margin:10px auto 20px auto;padding:10px 20px;background:#ff1493;color:#fff;border:none;border-radius:30px}
+nav{text-align:center;padding:15px;background:#ff1493}
+nav a{color:#fff;margin:0 10px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+<h2>Our Products</h2>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="cart.html">Cart</a>
+</nav>
+
+<div class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa">
+<h3>Luxury Lip Gloss</h3>
+<p class="price">₦8,000</p>
+<button onclick="addToCart('Luxury Lip Gloss',8000)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596704017254-9e8d7c5e4f0b">
+<h3>Liquid Foundation</h3>
+<p class="price">₦12,000</p>
+<button onclick="addToCart('Liquid Foundation',12000)">Add to Cart</button>
+</div>
+
+</div>
+
+<script>
+function addToCart(name,price){
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+cart.push({name,price});
+localStorage.setItem("cart",JSON.stringify(cart));
+alert("Added to cart");
+}
+</script>
+
+</body>
+</html>
